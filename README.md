@@ -1,4 +1,3 @@
-# Azure-MERN-Application-Using-AKS- deployment
 
 * Clone the git repository
 ```
@@ -36,23 +35,26 @@ EXPOSE 3000
 CMD [ "npm","start" ]
 
 ```
-* create a repository in docker hub and then pushed all the images to docker hub.
+* create a repository in docker hub
 ```
-docker build -t flowerking21/micro_backend_helloservice:latest .
-docker build -t flowerking21/micro_backend_profileservice:latest .
-docker build -t flowerking21/micro_frontendservice:latest .
+docker build -t nikb11/micro_backend_helloservice:latest .
+docker build -t nikb11/micro_backend_profileservice:latest .
+docker build -t nikb11/micro_frontendservice:latest .
 
-docker push flowerking21/micro_backend_helloservice:latest 
-docker push flowerking21/micro_backend_profileservice:latest
-docker push flowerking21/micro_frontendservice:latest
+```
+* pushed all the images to docker hub.
+```
+docker push nikb11/micro_backend_helloservice:latest 
+docker push nikb11/micro_backend_profileservice:latest
+docker push nikb11/micro_frontendservice:latest
 ```
 
-* Create AKS cluster 
+* Creating AKS cluster 
 ```  
 Go to Kubernetes service -> Create Kubernetes cluster -> create resource group -> cluster name & availability zones & kubernetes version & Authentication and Authorization -> Node pools (Adjust node size if needed ) -> Networking configure to Azure CNI & DNS name & network policy -> Integrations (create container registery) -> Monitoring Enable container logs -> Tags if needed -> Review and create 
 ```
 
-* login into your azure account 
+* azure account login 
 ```
 az login
 ```
@@ -73,18 +75,7 @@ kubectl get pods
 kubectl get svc 
 
 ```
-* make sure your ip address configured with DNS server.
+* configured with DNS server.
 
-* Everything done well we will get the output as mentioned below 
 
-* profile service 
-![alt text](<pic/profile service.PNG>)
 
-* hello service 
-![alt text](<pic/hello service.PNG>)
-
-* Frontend service 
-![alt text](<pic/react application.PNG>)
-
-Done
-Happy Learning !!!!
